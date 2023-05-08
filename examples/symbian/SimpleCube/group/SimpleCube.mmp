@@ -1,0 +1,81 @@
+TARGET			   SimpleCube_0xE7BA8E00.exe
+TARGETTYPE		   exe
+UID		           0x100039CE 0xE7BA8E00
+VENDORID           0
+SECUREID           0xE7BA8E00
+CAPABILITY         ReadUserData
+
+EPOCSTACKSIZE      16000
+EPOCHEAPSIZE       256000 4000000 
+
+LANG               SC
+
+SOURCEPATH		   ..\src
+SOURCE			   SimpleCube.cpp
+SOURCE			   SimpleCubeApplication.cpp
+SOURCE			   SimpleCubeAppView.cpp
+SOURCE			   SimpleCubeAppUi.cpp
+SOURCE			   SimpleCubeDocument.cpp
+
+SOURCEPATH		   ..\data
+
+START RESOURCE	   SimpleCube.rss
+HEADER
+TARGET SimpleCube_0xE7BA8E00
+TARGETPATH resource\apps
+END //RESOURCE
+
+START RESOURCE	   SimpleCube_reg.rss
+TARGET SimpleCube_0xE7BA8E00_reg
+TARGETPATH 	  \private\10003a3f\apps
+END //RESOURCE
+
+USERINCLUDE	   ..\include
+
+SYSTEMINCLUDE	 \epoc32\include
+
+LIBRARY		   euser.lib
+LIBRARY		   apparc.lib
+LIBRARY		   cone.lib
+LIBRARY		   eikcore.lib
+LIBRARY		   avkon.lib
+LIBRARY		   commonengine.lib
+LIBRARY		   efsrv.lib 
+LIBRARY		   estor.lib
+LIBRARY        aknnotify.lib
+LIBRARY        hlplch.lib
+ 
+#ifdef ENABLE_ABIV2_MODE
+DEBUGGABLE_UDEBONLY
+#endif
+
+// STDLIB support
+SYSTEMINCLUDE   \epoc32\include\libc 
+LIBRARY         estlib.lib 
+
+// Nova3D core 
+USERINCLUDE     ..\..\..\..\core\include
+SOURCEPATH      ..\..\..\..\core\src
+SOURCE          VectorMath.cpp
+SOURCE          Texture.cpp 
+SOURCE          Frustum.cpp
+SOURCE          Shape.cpp
+SOURCE          Node.cpp
+SOURCE          Lights.cpp 
+SOURCE          Camera.cpp 
+
+// Nova3D adaptation
+USERINCLUDE     ..\..\..\..\adaptation\include
+USERINCLUDE     ..\..\..\..\adaptation\symbian\include
+SOURCEPATH      ..\..\..\..\adaptation\symbian\src
+SOURCE          novalogging.cpp 
+SOURCE          FixedOperations.cpp
+
+SOURCEPATH ..\..\..\..\util\symbian\src
+SOURCE DSAEngine.cpp
+SOURCEPATH ..\src
+SOURCE DemoEngine.cpp
+SOURCEPATH ..\..\..\..\util\common\src
+SOURCE ColorCube.cpp
+SOURCEPATH ..\..\..\..\core\src
+SOURCE Display.cpp

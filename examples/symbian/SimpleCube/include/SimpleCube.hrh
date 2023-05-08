@@ -1,0 +1,21 @@
+/*
+ ============================================================================
+ Name		: SimpleCube.hrh
+ Author	  : 
+ Copyright   : 
+ Description : This file contains declarations for constants of SimpleCube.
+ The file can be included in C++ or resource file.
+ ============================================================================
+ */
+#ifndef __SIMPLECUBE_HRH__
+#define __SIMPLECUBE_HRH__
+
+#define _UID3 0xE7BA8E00
+
+// SimpleCube enumerate command codes
+enum TSimpleCubeIds
+	{
+	Eblaalaa = 1
+	};
+
+#endif // __SIMPLECUBE_HRH__
